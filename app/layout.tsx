@@ -31,6 +31,16 @@ export default function RootLayout({
           }
         />
         <link rel="icon" type="image/x-icon" href="/logo.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Tajawal:wght@500&display=swap"
+          rel="stylesheet"
+        ></link>
       </head>
       <ThemeProvider theme={theme}>
         <body>
