@@ -7,7 +7,7 @@ export const themeOptions: ThemeOptions = {
   palette: {
     mode: "light",
     primary: {
-      main: "#e60211",
+      main: "#CD1F29",
     },
     secondary: {
       main: "#05429b",
@@ -42,6 +42,38 @@ export const themeOptions: ThemeOptions = {
         disableRipple: true,
       },
     },
+    // MuiButton: {
+    //   defaultProps: {
+    //     sx: {
+    //       "&::after": {
+    //         content: '""',
+    //         display: "block",
+    //         position: "absolute",
+    //         left: 0,
+    //         top: 0,
+    //         width: "100%",
+    //         height: "100%",
+    //         opacity: 0,
+    //         transition: "all 0.3s",
+    //         boxShadow: "0 0 10px 10px rgba(0, 123, 255, 0.3)",
+    //       },
+
+    //       "&:active::after": {
+    //         boxShadow: "0 0 0 0 rgba(0, 123, 255, 0.3)",
+    //         position: "absolute",
+    //         borderRadius: "5px",
+    //         left: 0,
+    //         top: 0,
+    //         opacity: 1,
+    //         transition: "0s",
+    //       },
+    //       "&:active": {
+    //         //underline
+    //         // textDecoration: "underline",
+    //       },
+    //     },
+    //   },
+    // },
   },
 }
 

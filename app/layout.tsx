@@ -21,9 +21,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <title>East Crown For Construction</title>
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
+        <meta
+          name="description"
+          content={
+            "Innovative ideas were our support and the source of strength"
+          }
+        />
+        <link rel="icon" type="image/x-icon" href="/logo.png" />
+      </head>
       <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <body>{children}</body>
+        <body>
+          <CssBaseline />
+          {children}
+        </body>
       </ThemeProvider>
     </html>
   )
