@@ -2,7 +2,7 @@ import { Card, Paper, Typography } from "@mui/material"
 import Box from "@mui/material/Box"
 import Image from "next/image"
 
-export default function AboutUsSection() {
+export default function ServicesSection() {
   return (
     <Box>
       <Box
@@ -41,17 +41,13 @@ export default function AboutUsSection() {
         </Box>
         <Box
           sx={{
-            flexDirection: "column",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
             position: "absolute",
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
           }}
         >
-          <Paper sx={{ p: 2, maxWidth: { xs: "100%", md: "30rem" } }}>
+          <Paper sx={{ p: 2, maxWidth: "30rem" }}>
             <Box
               sx={{
                 alignItems: "center",
@@ -80,20 +76,6 @@ export default function AboutUsSection() {
               </Box>
             </Box>
           </Paper>
-
-          <Box sx={{ mt: 8 }} textAlign={"center"}>
-            <Typography
-              fontWeight={"bold"}
-              fontSize={"2rem"}
-              color="white"
-              display={"inline"}
-            >
-              Innovative ideas{" "}
-            </Typography>
-            <Typography fontSize={"2rem"} color={"white"} display={"inline"}>
-              were our support and the source of our strength
-            </Typography>
-          </Box>
         </Box>
       </Box>
     </Box>

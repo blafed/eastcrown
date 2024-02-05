@@ -3,12 +3,16 @@ import MainLayout from "./common/MainLayout"
 import { Box, Button, Grid, Grow, Typography } from "@mui/material"
 import IntroSection from "./home/IntroSection"
 import AboutUsSection from "./home/AboutUsSection"
+import ServicesSection from "./home/ServicesSection"
+import OursSection from "./home/OursSection"
 
 export default function Home() {
   return (
     <MainLayout>
       <IntroSection />
+      <OursSection />
       <AboutUsSection />
+
       {/* <MainSection /> */}
     </MainLayout>
   )

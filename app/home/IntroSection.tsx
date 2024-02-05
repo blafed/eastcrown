@@ -4,7 +4,7 @@ export default function IntroSection() {
   return (
     <Box>
       <Box
-        sx={{ position: "relative", height: "80rem", backgroundColor: "black" }}
+        sx={{ position: "relative", height: "100vh", backgroundColor: "black" }}
       >
         <Image
           objectFit="cover"
