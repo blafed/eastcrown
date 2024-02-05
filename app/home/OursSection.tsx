@@ -43,13 +43,21 @@ export default function OursSection() {
           <Image
             objectFit="cover"
             layout="fill"
-            style={{ opacity: 0.3 }}
+            style={{ opacity: 0.9, filter: "blur(4px)" }}
             alt="Picture of the office"
             src="/img/office wood.png"
           />
+          {/* <Box
+            sx={{
+              height: "100%",
+              width: "100%",
+              bgcolor: "white",
+            }}
+          ></Box> */}
         </Box>
         <Box
           sx={{
+            width: "80%",
             position: "absolute",
             top: "50%",
             left: "50%",
@@ -113,11 +121,12 @@ function Term(props: {
 }) {
   return (
     <Paper
+      elevation={4}
       sx={{
         height: "100%",
         width: "100%",
         // backgroundColor: "transparent",
-        // boxShadow: 0,
+        // boxShadow: 5,
         p: 2,
         transition: "0.1s",
 
@@ -127,9 +136,9 @@ function Term(props: {
         alignItems: "center",
         gap: 2,
 
-        ":hover": {
-          transform: "scale(1.05)",
-        },
+        // ":hover": {
+        //   transform: "scale(1.05)",
+        // },
       }}
     >
       <Box
