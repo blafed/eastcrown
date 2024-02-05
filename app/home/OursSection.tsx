@@ -1,4 +1,5 @@
-import { Card, Grid, Paper, Typography } from "@mui/material"
+import { CheckCircleOutline, Flag, People } from "@mui/icons-material"
+import { Card, Divider, Grid, Paper, Typography } from "@mui/material"
 import Box from "@mui/material/Box"
 import Image from "next/image"
 import { Children, ReactNode } from "react"
@@ -55,9 +56,15 @@ export default function OursSection() {
             transform: "translate(-50%, -50%)",
           }}
         >
-          <Grid container spacing={2}>
+          <Grid
+            alignItems={"stretch"}
+            direction={"row"}
+            justifyContent={"center"}
+            container
+            spacing={2}
+          >
             <Grid item {...gridOptions}>
-              <Term title="Our Team">
+              <Term title="Our Team" icon={<People sx={{ zoom: 2 }} />}>
                 <Typography>
                   A team of specialists in the field of innovating and providing
                   solutions for the supply and installation of finishing work
@@ -65,17 +72,31 @@ export default function OursSection() {
               </Term>
             </Grid>
             <Grid item {...gridOptions}>
-              <Term title="Our Goal">
+              <Term title="Our Goal" icon={<Flag sx={{ zoom: 2 }} />}>
                 <Typography>
-                  - To be always trusted by customers, to form continuous
+                  To be always trusted by customers, to form continuous
                   partnerships
                 </Typography>
                 <Typography>
-                  - To reach a leading position in our field by commiting to
+                  To reach a leading position in our field by commiting to
                   provide our services with
                   <b> high quality </b> at
                   <b> competitive prices </b>
                 </Typography>
+              </Term>
+            </Grid>
+            <Grid item {...gridOptions}>
+              <Term
+                title="Our Values"
+                icon={<CheckCircleOutline sx={{ zoom: 2 }} />}
+              >
+                <Typography fontWeight={"bold"}>
+                  Customers satisfaction is our top priority
+                </Typography>
+                <Typography>
+                  We practice win-win partnerships with our customers
+                </Typography>
+                <Typography>Always finish before deadline</Typography>
               </Term>
             </Grid>
           </Grid>
@@ -85,24 +106,51 @@ export default function OursSection() {
   )
 }
 
-function Term(props: { title: string; children?: ReactNode }) {
+function Term(props: {
+  title: string
+  children?: ReactNode
+  icon?: ReactNode
+}) {
   return (
     <Paper
       sx={{
-        backgroundColor: "transparent",
-        boxShadow: 0,
+        height: "100%",
+        width: "100%",
+        // backgroundColor: "transparent",
+        // boxShadow: 0,
         p: 2,
-        transition: "0.3s",
+        transition: "0.1s",
+
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: 2,
 
         ":hover": {
-          transform: "scale(1.2)",
+          transform: "scale(1.05)",
         },
       }}
     >
-      <Typography color="white" fontSize={"2rem"} textAlign={"center"}>
-        {props.title}
-      </Typography>
-      {props.children ?? <></>}
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: 1,
+        }}
+      >
+        {props.icon ?? <></>}
+        <Typography fontSize={"2rem"} textAlign={"center"}>
+          {props.title}
+        </Typography>
+      </Box>
+      <Divider />
+      <Box
+        sx={{ flexGrow: 1, display: "flex", flexDirection: "column", gap: 2 }}
+      >
+        {props.children ?? <></>}
+      </Box>
     </Paper>
   )
 }

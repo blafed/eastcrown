@@ -10,8 +10,10 @@ export default function Home() {
   return (
     <MainLayout>
       <IntroSection />
-      <OursSection />
+      <Box sx={{ mt: 2 }} />
       <AboutUsSection />
+      <Box sx={{ mt: 2 }} />
+      <OursSection />
 
       {/* <MainSection /> */}
     </MainLayout>
@@ -51,6 +53,7 @@ function MainSection() {
                 p: 0,
               }}
             >
+              a{" "}
               <Image
                 objectFit="cover"
                 layout="fill"
@@ -63,5 +66,5 @@ function MainSection() {
       </Grid>
     </Box>
   )
-  return <Box sx={{ display: "flex", flexDirection: "row" }}></Box>
+  return <Box sx={{ disply: "flex", flexDirection: "row" }}></Box>
 }

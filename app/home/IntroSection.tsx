@@ -26,14 +26,14 @@ export default function IntroSection() {
             alignItems: "center",
           }}
         >
-          <Typography color={"white"} textAlign={"center"}>
+          <Box color={"white"} textAlign={"center"}>
             <Typography fontSize={"2rem"} fontWeight={"bold"}>
               Empty Space Wherever They Are Push Us
             </Typography>
             <Typography fontSize={"4rem"} fontWeight={"bold"}>
               To Be Creative
             </Typography>
-          </Typography>{" "}
+          </Box>{" "}
           <Button variant="contained">Contact Us</Button>
         </Box>
       </Box>

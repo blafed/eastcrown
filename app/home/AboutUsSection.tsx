@@ -60,7 +60,7 @@ export default function AboutUsSection() {
               }}
             >
               <Box sx={{ mt: 2 }}>
-                <Typography>
+                <Box>
                   <Typography
                     fontSize={"3rem"}
                     display={"inline"}
@@ -76,7 +76,7 @@ export default function AboutUsSection() {
                     at competitivve prices and always strive to keep pace with
                     modern developments
                   </Typography>
-                </Typography>
+                </Box>
               </Box>
             </Box>
           </Paper>
