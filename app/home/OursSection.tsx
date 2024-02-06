@@ -12,7 +12,7 @@ export default function OursSection() {
     lg: 4,
   }
   return (
-    <Box>
+    <Box py={4}>
       {/* <Box
         sx={{
           display: "flex",
@@ -27,41 +27,18 @@ export default function OursSection() {
           to add elegant touches to finishing work
         </Typography>
       </Box> */}
-      <Box sx={{ height: "2rem" }}></Box>
+      {/* <Box sx={{ height: "2rem" }}></Box> */}
       <Box
         width="100%"
-        sx={{ position: "relative", display: "flex", justifyContent: "center" }}
+        sx={{
+          position: "relative",
+          display: "flex",
+          justifyContent: "center",
+        }}
       >
         <Box
           sx={{
-            position: "relative",
-            height: "40rem",
-            width: "100%",
-            backgroundColor: "black",
-          }}
-        >
-          <Image
-            objectFit="cover"
-            layout="fill"
-            style={{ opacity: 0.9, filter: "blur(4px)" }}
-            alt="Picture of the office"
-            src="/img/office wood.png"
-          />
-          {/* <Box
-            sx={{
-              height: "100%",
-              width: "100%",
-              bgcolor: "white",
-            }}
-          ></Box> */}
-        </Box>
-        <Box
-          sx={{
             width: "80%",
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
           }}
         >
           <Grid
@@ -73,7 +50,7 @@ export default function OursSection() {
           >
             <Grid item {...gridOptions}>
               <Term title="Our Team" icon={<People sx={{ zoom: 2 }} />}>
-                <Typography>
+                <Typography color="text.secondary" textAlign={"center"}>
                   A team of specialists in the field of innovating and providing
                   solutions for the supply and installation of finishing work
                 </Typography>
@@ -81,11 +58,11 @@ export default function OursSection() {
             </Grid>
             <Grid item {...gridOptions}>
               <Term title="Our Goal" icon={<Flag sx={{ zoom: 2 }} />}>
-                <Typography>
+                <Typography color="text.secondary">
                   To be always trusted by customers, to form continuous
                   partnerships
                 </Typography>
-                <Typography>
+                <Typography color="text.secondary">
                   To reach a leading position in our field by commiting to
                   provide our services with
                   <b> high quality </b> at
@@ -98,13 +75,15 @@ export default function OursSection() {
                 title="Our Values"
                 icon={<CheckCircleOutline sx={{ zoom: 2 }} />}
               >
-                <Typography fontWeight={"bold"}>
+                <Typography fontWeight={"bold"} color="text.secondary">
                   Customers satisfaction is our top priority
                 </Typography>
-                <Typography>
+                <Typography color="text.secondary">
                   We practice win-win partnerships with our customers
                 </Typography>
-                <Typography>Always finish before deadline</Typography>
+                <Typography color="text.secondary">
+                  Always finish before deadline
+                </Typography>
               </Term>
             </Grid>
           </Grid>
@@ -121,7 +100,7 @@ function Term(props: {
 }) {
   return (
     <Paper
-      elevation={4}
+      elevation={0}
       sx={{
         height: "100%",
         width: "100%",
@@ -146,6 +125,7 @@ function Term(props: {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          flexDirection: "column",
           gap: 1,
         }}
       >

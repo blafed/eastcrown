@@ -4,7 +4,7 @@ import Link from "next/link"
 
 export default function HeaderBar() {
   return (
-    <AppBar color="transparent" sx={{ boxShadow: 0 }}>
+    <AppBar color="inherit" sx={{ boxShadow: 0, backdropFilter: "blur(8px)" }}>
       <Box
         sx={{
           px: 1,
@@ -18,13 +18,17 @@ export default function HeaderBar() {
             <Logo />
           </IconButton>
         </Link>
-        <Box sx={{ display: "flex", flexGrow: 1, justifyContent: "center" }}>
+        <Box sx={{ flexGrow: 1 }} />
+        <Box
+          sx={{
+            gap: 1,
+            display: "flex",
+            // justifyContent: "center",
+          }}
+        >
+          <HeadItem text="Services" />
           <HeadItem text="About Us" />
-          <HeadItem text="Our Team" />
-          <HeadItem text="Our Goal" />
-          <HeadItem text="Our Values" />
-          <HeadItem text="Our Serviecs" />
-          <HeadItem text="Our Sucess partners" />
+          <HeadItem text="Contact Us" highlighted />
         </Box>
 
         <Box>{/* <Button variant="outlined">Do Action</Button> */}</Box>
@@ -33,7 +37,14 @@ export default function HeaderBar() {
   )
 }
 
-function HeadItem(props: { text: string }) {
-  return <></>
-  return <Button color="secondary">{props.text}</Button>
+function HeadItem(props: { text: string; highlighted?: boolean }) {
+  // return <></>
+  return (
+    <Button
+      color={props.highlighted ? "primary" : "secondary"}
+      variant={props.highlighted ? "contained" : "text"}
+    >
+      {props.text}
+    </Button>
+  )
 }

@@ -34,7 +34,7 @@ export default function IntroSection() {
               To Be Creative
             </Typography>
           </Box>{" "}
-          <Button variant="contained">Contact Us</Button>
+          {/* <Button variant="contained">Contact Us</Button> */}
         </Box>
       </Box>
     </Box>
