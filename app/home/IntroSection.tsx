@@ -1,4 +1,4 @@
-import { Box, Typography, Button } from "@mui/material"
+import { Box, Typography, Button, Grow } from "@mui/material"
 import Image from "next/image"
 export default function IntroSection() {
   return (
@@ -27,13 +27,26 @@ export default function IntroSection() {
           }}
         >
           <Box color={"white"} textAlign={"center"}>
-            <Typography fontSize={"2rem"} fontWeight={"bold"}>
-              Empty Space Wherever They Are Push Us
-            </Typography>
-            <Typography fontSize={"4rem"} fontWeight={"bold"}>
-              To Be Creative
-            </Typography>
-          </Box>{" "}
+            <Grow in timeout={1200}>
+              <Typography fontSize={"2rem"} fontWeight={"bold"}>
+                Empty Space Wherever They Are Push Us
+              </Typography>
+            </Grow>
+            <Grow in timeout={1200} style={{ transitionDelay: "0.5s" }}>
+              <Typography fontSize={"4rem"} fontWeight={"bold"}>
+                To Be Creative
+              </Typography>
+            </Grow>
+            {/* <Grow in timeout={1200} style={{ transitionDelay: "1s" }}>
+              <Button
+                sx={{ color: "black" }}
+                variant="contained"
+                color="inherit"
+              >
+                Contact Us
+              </Button>
+            </Grow> */}
+          </Box>
           {/* <Button variant="contained">Contact Us</Button> */}
         </Box>
       </Box>
