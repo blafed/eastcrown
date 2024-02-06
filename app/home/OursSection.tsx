@@ -49,7 +49,11 @@ export default function OursSection() {
             spacing={2}
           >
             <Grid item {...gridOptions}>
-              <Term title="Our Team" icon={<People sx={{ zoom: 2 }} />}>
+              <Term
+                title="Our Team"
+                iconImg="handshake.png"
+                // icon={<People sx={{ zoom: 2 }} />}
+              >
                 <Typography color="text.secondary" textAlign={"center"}>
                   A team of specialists in the field of innovating and providing
                   solutions for the supply and installation of finishing work
@@ -57,7 +61,11 @@ export default function OursSection() {
               </Term>
             </Grid>
             <Grid item {...gridOptions}>
-              <Term title="Our Goal" icon={<Flag sx={{ zoom: 2 }} />}>
+              <Term
+                iconImg="target.png"
+                title="Our Goal"
+                // icon={<Flag sx={{ zoom: 2 }} />}
+              >
                 <Typography color="text.secondary">
                   To be always trusted by customers, to form continuous
                   partnerships
@@ -73,7 +81,8 @@ export default function OursSection() {
             <Grid item {...gridOptions}>
               <Term
                 title="Our Values"
-                icon={<CheckCircleOutline sx={{ zoom: 2 }} />}
+                iconImg="vision.png"
+                // icon={<CheckCircleOutline sx={{ zoom: 2 }} />}
               >
                 <Typography fontWeight={"bold"} color="text.secondary">
                   Customers satisfaction is our top priority
@@ -97,6 +106,7 @@ function Term(props: {
   title: string
   children?: ReactNode
   icon?: ReactNode
+  iconImg?: string
 }) {
   return (
     <Paper
@@ -129,6 +139,18 @@ function Term(props: {
           gap: 1,
         }}
       >
+        {props.iconImg ? (
+          <Box>
+            <Image
+              src={"/icon/" + props.iconImg}
+              width="80"
+              height="80"
+              alt={props.iconImg}
+            />
+          </Box>
+        ) : (
+          <></>
+        )}
         {props.icon ?? <></>}
         <Typography fontSize={"2rem"} textAlign={"center"}>
           {props.title}

@@ -83,7 +83,7 @@ function Section(props: {
   if (props.href)
     return (
       <Link
-        style={{}}
+        style={{ textDecoration: "none" }}
         href={props.href || ""}
         passHref
         target={props.blank ? "_blank" : "_self"}
