@@ -18,6 +18,7 @@ export default function Home() {
       <OursSection />
       <Box sx={{ mt: 2 }} />
       <PartnersSections />
+      <Box sx={{ mt: 2 }} />
 
       <Footer />
 
