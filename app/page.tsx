@@ -17,6 +17,8 @@ export default function Home() {
       {/* <Box sx={{ mt: 2 }} /> */}
       <OursSection />
       <Box sx={{ mt: 2 }} />
+      <ServicesSection />
+      <Box sx={{ mt: 2 }} />
       <PartnersSections />
       <Box sx={{ mt: 2 }} />
 

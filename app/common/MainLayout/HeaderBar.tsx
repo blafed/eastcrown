@@ -78,7 +78,7 @@ export default function HeaderBar() {
             alignItems: "center",
           }}
         >
-          {!isSm ? null : (
+          {false && !isSm ? null : (
             <IconButton onClick={() => setMenuShown(!menuShown)}>
               <MenuIcon />
             </IconButton>
@@ -132,7 +132,7 @@ function MainDrawer(props: { open: boolean; onClose: () => void }) {
   const path = usePathname()
 
   return (
-    <Drawer anchor={"right"} open={props.open} onClose={props.onClose}>
+    <Drawer anchor={"left"} open={props.open} onClose={props.onClose}>
       <Box
         sx={{
           width: 250,
