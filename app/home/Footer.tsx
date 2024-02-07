@@ -12,6 +12,7 @@ export default function Footer() {
         minHeight: "4rem",
         justifyContent: "center",
         flexDirection: "column",
+        alignItems: "center",
         display: "flex",
         width: "100%",
         bgcolor: "black",

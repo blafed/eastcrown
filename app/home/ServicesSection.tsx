@@ -21,6 +21,7 @@ type ItemType = {
   listOfThings?: string[]
 }
 export default function ServicesSection() {
+  const isSm = useMediaQuery(useTheme().breakpoints.down("sm"))
   const itemSizes = {
     xs: 12,
   }
@@ -57,7 +58,7 @@ export default function ServicesSection() {
     },
   ]
 
-  const gridHeight = 140
+  const gridHeight = isSm ? 200 : 140
   return (
     <Box>
       <Box
@@ -73,7 +74,7 @@ export default function ServicesSection() {
         <Typography variant="h2" fontWeight={"bold"}>
           Services
         </Typography>
-        <Box sx={{ width: "100%" }}>
+        <Box sx={{ width: "100%", mt: 2 }}>
           <Grid
             alignItems={"stretch"}
             spacing={2}
@@ -87,7 +88,7 @@ export default function ServicesSection() {
                 {...itemSizes}
                 key={index}
               >
-                <Item alt={index % 2 == 0} {...item} />
+                <Item alt={true || index % 2 == 0} {...item} />
               </Grid>
             ))}
           </Grid>
@@ -167,9 +168,9 @@ function Item(props: ItemType & { alt: boolean }) {
             width: "100%",
             transitionDuration: "0.3s",
             ":hover": {
-              bgcolor: alt ? "primary.light" : "primary.light",
-              color: "white",
-              transitionDuration: "0.3s",
+              // bgcolor: alt ? "primary.light" : "primary.light",
+              // color: "white",
+              // transitionDuration: "0.3s",
             },
             // bgcolor: "#555",
           }}
