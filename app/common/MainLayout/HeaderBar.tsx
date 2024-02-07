@@ -126,7 +126,7 @@ function MainDrawer(props: { open: boolean; onClose: () => void }) {
     { Icon: ContactsOutlined, text: "Contact Us", href: "/about" },
     { Icon: InfoOutlined, text: "About Us", href: "/about" },
     { text: "", href: "", divider: true },
-    { Icon: LanguageOutlined, text: "عربي", href: "/ar" },
+    { Icon: LanguageOutlined, text: "عربي", href: "/" },
   ]
   const router = useRouter()
   const path = usePathname()
@@ -211,7 +211,7 @@ function HeadItem(props: {
 
 function LangItem() {
   return (
-    <Link href="/ar" passHref>
+    <Link href="/" passHref>
       <Button color={"secondary"} variant={"text"} startIcon={<Language />}>
         عربي
       </Button>
