@@ -1,1 +1,1 @@
-export default AR_LANG = []
+// export default AR_LANG = []
