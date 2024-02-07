@@ -1,8 +1,5 @@
-import { useRouter } from "next/navigation"
+import { redirect } from "next/navigation"
 
-export default function AboutPage() {
-  //redirect to home
-  const router = useRouter()
-  router.replace("/")
-  return <div>about page</div>
+export default async function Profile() {
+  redirect("/")
 }
