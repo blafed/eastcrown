@@ -1,5 +1,16 @@
 "use client"
-import { Card, Grid, List, ListItem, Paper, Typography } from "@mui/material"
+import { CheckOutlined } from "@mui/icons-material"
+import {
+  Card,
+  Grid,
+  Grow,
+  List,
+  ListItem,
+  Paper,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material"
 import Box from "@mui/material/Box"
 import Image from "next/image"
 
@@ -12,10 +23,6 @@ type ItemType = {
 export default function ServicesSection() {
   const itemSizes = {
     xs: 12,
-    sm: 6,
-    md: 6,
-    lg: 4,
-    xl: 3,
   }
   const items: ItemType[] = [
     {
@@ -25,8 +32,11 @@ export default function ServicesSection() {
       //such as fixed & mobile, glass or wood, protective wall, gypsum, tolilets, workstations, complete with all accessories
       listOfThings: [
         "fixed & mobile partitions",
-        "gypsum, protective wall, glass or wood partitions",
-        "workstations & toilets partitions",
+        "protective wall partitions",
+        "gypsum partitions",
+        "glass or wood partitions",
+        "workstations partitions",
+        "toilets partitions",
       ],
     },
     {
@@ -46,6 +56,8 @@ export default function ServicesSection() {
       // desc: "Different types of products such ",
     },
   ]
+
+  const gridHeight = 140
   return (
     <Box>
       <Box
@@ -61,11 +73,21 @@ export default function ServicesSection() {
         <Typography variant="h2" fontWeight={"bold"}>
           Services
         </Typography>
-        <Box sx={{ width: "100%" }} bgcolor="#ddd">
-          <Grid container sx={{ height: "60rem" }}>
+        <Box sx={{ width: "100%" }}>
+          <Grid
+            alignItems={"stretch"}
+            spacing={2}
+            container
+            sx={{ height: { xs: gridHeight + "rem" } }}
+          >
             {items.map((item, index) => (
-              <Grid item {...itemSizes} key={index}>
-                <Item {...item} />
+              <Grid
+                height={gridHeight / 4 + "rem"}
+                item
+                {...itemSizes}
+                key={index}
+              >
+                <Item alt={index % 2 == 0} {...item} />
               </Grid>
             ))}
           </Grid>
@@ -75,59 +97,87 @@ export default function ServicesSection() {
   )
 }
 
-function Item(props: ItemType) {
-  return (
+function Item(props: ItemType & { alt: boolean }) {
+  const theme = useTheme()
+  const isMd = useMediaQuery(theme.breakpoints.up("md"))
+
+  const alt = props.alt && isMd
+
+  const imageComponent = (
     <Box
       sx={{
+        // flexGrow: 1,
         position: "relative",
-        height: "100%",
         width: "100%",
-        bgcolor: "black",
+        height: "100%",
       }}
     >
       <Image
-        style={{ opacity: 0.6 }}
+        style={{}}
         layout="fill"
         objectFit="cover"
         src={`/img/${props.bgimg}`}
         alt={props.title}
       />
+    </Box>
+  )
+
+  const textComponent = (
+    <Box
+      sx={{
+        width: "100%",
+        p: 3,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        // bgcolor: "black",
+      }}
+    >
+      <Typography variant="h3">{props.title}</Typography>
+      {props.desc && (
+        <Typography sx={{ opacity: 0.7 }}>{props.desc}</Typography>
+      )}
+      {props.listOfThings && (
+        <List>
+          {props.listOfThings.map((thing, index) => (
+            <ListItem key={index}>
+              <CheckOutlined />
+              <Typography textTransform={"capitalize"}>{thing}</Typography>
+            </ListItem>
+          ))}
+        </List>
+      )}
+    </Box>
+  )
+
+  return (
+    <Grow in timeout={1000}>
       <Box
         sx={{
-          width: "100%",
-          p: 3,
-          transform: "translate(-50%)",
-          position: "absolute",
-          top: "0%",
-          left: "50%",
           height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "flex-start",
-          alignItems: "center",
-          // bgcolor: "black",
+          width: "100%",
         }}
       >
-        <Typography color={"white"} variant="h3" fontWeight={"bold"}>
-          {props.title}
-        </Typography>
-        {props.desc && (
-          <Typography sx={{ opacity: 0.7 }} color="white">
-            {props.desc}
-          </Typography>
-        )}
-        {props.listOfThings && (
-          <List>
-            {props.listOfThings.map((thing, index) => (
-              <ListItem key={index}>
-                <Typography textTransform={"capitalize"} color="white">
-                  {thing}
-                </Typography>
-              </ListItem>
-            ))}
-          </List>
-        )}
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: isMd ? "row" : "column",
+            height: "100%",
+            width: "100%",
+            transitionDuration: "0.3s",
+            ":hover": {
+              bgcolor: alt ? "primary.light" : "primary.light",
+              color: "white",
+              transitionDuration: "0.3s",
+            },
+            // bgcolor: "#555",
+          }}
+        >
+          {alt ? imageComponent : textComponent}
+          {alt ? textComponent : imageComponent}
+        </Box>
       </Box>
-    </Box>
+    </Grow>
   )
 }
