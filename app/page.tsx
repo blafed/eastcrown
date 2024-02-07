@@ -5,15 +5,24 @@ import IntroSection from "./home/IntroSection"
 import AboutUsSection from "./home/AboutUsSection"
 import ServicesSection from "./home/ServicesSection"
 import OursSection from "./home/OursSection"
+import Footer from "./home/Footer"
+import PartnersSections from "./home/PartnersSections"
 
 export default function Home() {
   return (
     <MainLayout>
       <IntroSection />
-      <Box sx={{ mt: 2 }} />
-      <AboutUsSection />
-      <Box sx={{ mt: 2 }} />
+      <Box sx={{ mt: 4 }} />
+      {/* <AboutUsSection /> */}
+      {/* <Box sx={{ mt: 2 }} /> */}
       <OursSection />
+      <Box sx={{ mt: 4 }} />
+      <ServicesSection />
+      <Box sx={{ mt: 4 }} />
+      <PartnersSections />
+      <Box sx={{ mt: 4 }} />
+
+      <Footer />
 
       {/* <MainSection /> */}
     </MainLayout>

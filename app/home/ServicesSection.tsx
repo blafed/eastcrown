@@ -1,83 +1,184 @@
-import { Card, Paper, Typography } from "@mui/material"
+"use client"
+import { CheckOutlined } from "@mui/icons-material"
+import {
+  Card,
+  Grid,
+  Grow,
+  List,
+  ListItem,
+  Paper,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material"
 import Box from "@mui/material/Box"
 import Image from "next/image"
 
+type ItemType = {
+  bgimg: string
+  title: string
+  desc?: string
+  listOfThings?: string[]
+}
 export default function ServicesSection() {
+  const isSm = useMediaQuery(useTheme().breakpoints.down("sm"))
+  const itemSizes = {
+    xs: 12,
+  }
+  const items: ItemType[] = [
+    {
+      bgimg: "partitions.jpg",
+      title: "Partitions",
+      desc: "All types of partitions complete with all accessories",
+      //such as fixed & mobile, glass or wood, protective wall, gypsum, tolilets, workstations, complete with all accessories
+      listOfThings: [
+        "fixed & mobile partitions",
+        "protective wall partitions",
+        "gypsum partitions",
+        "glass or wood partitions",
+        "workstations partitions",
+        "toilets partitions",
+      ],
+    },
+    {
+      bgimg: "ceilings.jpg",
+      title: "Ceilings",
+      desc: "All types of gypsum & suspended ceilings",
+    },
+    {
+      bgimg: "floors.jpg",
+      title: "Floors",
+      listOfThings: ["vinyl floors", "raised floors", "stamped concrete"],
+    },
+    {
+      bgimg: "aluminum.jpg",
+      title: "Aluminum & glass",
+      listOfThings: ["windows", "doors", "curtain walls", "structural glazing"],
+      // desc: "Different types of products such ",
+    },
+  ]
+
+  const gridHeight = isSm ? 200 : 140
   return (
     <Box>
       <Box
         sx={{
           display: "flex",
           alignItems: "center",
-          height: "10em",
           textAlign: "center",
           justifyContent: "center",
+          flexDirection: "column",
+          py: 2,
         }}
       >
-        <Typography variant="h4" fontWeight={"bold"}>
-          The begining was from our deep thinking by providing smart solutions
-          to add elegant touches to finishing work
+        <Typography variant="h2" fontWeight={"bold"}>
+          Services
         </Typography>
-      </Box>
-      <Box
-        width="100%"
-        sx={{ position: "relative", display: "flex", justifyContent: "center" }}
-      >
-        <Box
-          sx={{
-            position: "relative",
-            height: "60rem",
-            width: "100%",
-            backgroundColor: "black",
-          }}
-        >
-          <Image
-            objectFit="cover"
-            layout="fill"
-            style={{ opacity: 0.3 }}
-            alt="Picture of the office"
-            src="/img/design office.png"
-          />
-        </Box>
-        <Box
-          sx={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-          }}
-        >
-          <Paper sx={{ p: 2, maxWidth: "30rem" }}>
-            <Box
-              sx={{
-                alignItems: "center",
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
-              <Box sx={{ mt: 2 }}>
-                <Typography>
-                  <Typography
-                    fontSize={"3rem"}
-                    display={"inline"}
-                    color="primary"
-                    fontWeight={"bold"}
-                  >
-                    East Crown{" "}
-                  </Typography>
-                  <Typography display={"inline"} fontSize={"1.5rem"}>
-                    was established with years of experience that provdes
-                    integgrated srevices according to international standards
-                    and has implemented actual projects of the highest quality
-                    at competitivve prices and always strive to keep pace with
-                    modern developments
-                  </Typography>
-                </Typography>
-              </Box>
-            </Box>
-          </Paper>
+        <Box sx={{ width: "100%", mt: 2 }}>
+          <Grid
+            alignItems={"stretch"}
+            spacing={2}
+            container
+            sx={{ height: { xs: gridHeight + "rem" } }}
+          >
+            {items.map((item, index) => (
+              <Grid
+                height={gridHeight / 4 + "rem"}
+                item
+                {...itemSizes}
+                key={index}
+              >
+                <Item alt={true || index % 2 == 0} {...item} />
+              </Grid>
+            ))}
+          </Grid>
         </Box>
       </Box>
     </Box>
+  )
+}
+
+function Item(props: ItemType & { alt: boolean }) {
+  const theme = useTheme()
+  const isMd = useMediaQuery(theme.breakpoints.up("md"))
+
+  const alt = props.alt && isMd
+
+  const imageComponent = (
+    <Box
+      sx={{
+        // flexGrow: 1,
+        position: "relative",
+        width: "100%",
+        height: "100%",
+      }}
+    >
+      <Image
+        style={{}}
+        layout="fill"
+        objectFit="cover"
+        src={`/img/${props.bgimg}`}
+        alt={props.title}
+      />
+    </Box>
+  )
+
+  const textComponent = (
+    <Box
+      sx={{
+        width: "100%",
+        p: 3,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        // bgcolor: "black",
+      }}
+    >
+      <Typography variant="h3">{props.title}</Typography>
+      {props.desc && (
+        <Typography sx={{ opacity: 0.7 }}>{props.desc}</Typography>
+      )}
+      {props.listOfThings && (
+        <List>
+          {props.listOfThings.map((thing, index) => (
+            <ListItem key={index}>
+              <CheckOutlined />
+              <Typography textTransform={"capitalize"}>{thing}</Typography>
+            </ListItem>
+          ))}
+        </List>
+      )}
+    </Box>
+  )
+
+  return (
+    <Grow in timeout={1000}>
+      <Box
+        sx={{
+          height: "100%",
+          width: "100%",
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: isMd ? "row" : "column",
+            height: "100%",
+            width: "100%",
+            transitionDuration: "0.3s",
+            ":hover": {
+              // bgcolor: alt ? "primary.light" : "primary.light",
+              // color: "white",
+              // transitionDuration: "0.3s",
+            },
+            // bgcolor: "#555",
+          }}
+        >
+          {alt ? imageComponent : textComponent}
+          {alt ? textComponent : imageComponent}
+        </Box>
+      </Box>
+    </Grow>
   )
 }

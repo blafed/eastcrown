@@ -1,7 +1,7 @@
 "use client"
 import { ThemeOptions, createTheme } from "@mui/material/styles"
 
-const font = "Roboto"
+const font = "Roboto Mono"
 
 export const themeOptions: ThemeOptions = {
   palette: {
