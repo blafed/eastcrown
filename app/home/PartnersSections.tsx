@@ -97,7 +97,7 @@ export default function PartnersSections() {
         <Typography
           color="text.secondary"
           textAlign={"center"}
-          fontWeight={"bold"}
+          // fontWeight={"bold"}
         >
           And many other whom we are proud to be partners
         </Typography>
