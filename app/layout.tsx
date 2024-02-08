@@ -3,6 +3,7 @@ import Box from "@mui/material/Box"
 import { ThemeProvider, createTheme } from "@mui/material/styles"
 import type { Metadata } from "next"
 import { theme, themeOptions } from "./theme"
+import imgPaths from "@/me/imgPaths"
 // import { Inter } from "next/font/google"
 
 // const inter = Inter({ subsets: ["latin"] })
@@ -38,7 +39,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
 
-        <link rel="icon" type="image/x-icon" href="/logo.png" />
+        <link rel="icon" type="image/x-icon" href={imgPaths.favicon} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

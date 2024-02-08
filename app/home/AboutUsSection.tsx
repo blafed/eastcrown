@@ -1,3 +1,4 @@
+import imgPaths from "@/me/imgPaths"
 import {
   CheckBoxRounded,
   CheckCircleOutline,
@@ -122,7 +123,7 @@ function BodyTextSection() {
         width="230"
         height="230"
         alt="East Crown Logo"
-        src="/logo.png"
+        src={imgPaths.logo}
       />
       <Box sx={{}}>
         {/* <Typography
